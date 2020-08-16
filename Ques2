@@ -1,1 +1,45 @@
+import java.util.*;
 
+class Base
+{
+    int width;
+    int height;
+    public Base()
+    {
+        width=0;
+        height=0;
+    }
+    public void display()
+    {
+        System.out.println("Width: "+width+","+"Height: "+height);
+    }
+}
+class Derive extends Base
+{
+    Scanner sc;
+    public Derive()
+    {
+        sc=new Scanner(System.in);
+    }
+    public void read_input()
+    {
+        width=sc.nextInt();
+        height=sc.nextInt();
+    }
+    public void display()
+    {
+        System.out.println(width*height);
+    }
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+       Derive area=new Derive();
+        area.read_input();
+        System.out.println("Width: "+area.width+","+"Height: "+area.height);
+        area.display();
+    }
+}    
+    
+    
