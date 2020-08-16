@@ -1,0 +1,46 @@
+import java.util.*;
+ class Calculator {
+
+
+	interface Operation {
+		int operation(int number1, int number2);
+	}
+	
+	public int operate(int a, int b, Operation math) {
+		return math.operation(a, b);
+	}
+	
+	public void add(int x,int y) {
+		Operation additionOp = (number1, number2) -> number1 + number2;
+		System.out.println(x+" + "+y+" = " + operate(x,y , additionOp));
+	}
+
+	public void sub(int x,int y) {
+		Operation subtractionOp = (number1, number2) -> number1 - number2;
+		System.out.println(x+" - "+y+" = " + operate(x, y, subtractionOp));
+	}
+
+	public void mul(int x,int y) {
+		Operation multiplicationOp = (number1, number2) -> number1 * number2;
+		System.out.println(x+" * "+y+" = " + operate(x, y, multiplicationOp));
+	}
+
+	public void div(int x,int y) {
+		Operation divisionOp = (number1, number2) -> number1 / number2;
+		System.out.println(x+" / "+y+" = " + operate(x, y, divisionOp));
+	}
+}   
+public class Main{
+	public static void main(String[] args) {
+		Calculator calculator = new Calculator();
+		int a,b;
+		Scanner sc=new Scanner(System.in);
+		a=sc.nextInt();
+		b=sc.nextInt();
+		calculator.add(a,b);
+		calculator.sub(a,b);
+		calculator.mul(a,b);
+		calculator.div(a,b);    	
+	
+	}
+}
